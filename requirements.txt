@@ -1,0 +1,5 @@
+python-dotenv
+mysql-connector-python
+SQLAlchemy
+SQLAlchemy-Utils
+tornado
