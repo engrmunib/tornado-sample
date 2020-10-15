@@ -19,16 +19,3 @@ class User(Base):
     name = Column(String(128), nullable=False)
     phone = Column(String(11), nullable=True)
     address = Column(String(512), nullable=True)
-
-
-# class User:
-#
-#     def __init__(self, name, phone, address):
-#         self.name = name
-#         self.phone = phone
-#         self.address = address
-#         return
-#
-#     def print(self):
-#         print(f'Name: {self.name}, Phone: {self.phone}, Address: {self.address}')
-#         return
