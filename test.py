@@ -1,4 +1,3 @@
-#!/opt/chi/python/bin/python
 
 import os
 import time
@@ -58,6 +57,7 @@ async def main():
     load_dotenv(verbose=True)
     print(f"Version: {os.environ.get('VERSION')}")
     # print('hello world!')
+    await db_test()
 
     await asyncio.gather(
         func1(),

@@ -7,12 +7,9 @@ Base = declarative_base()
 DEFAULT_TABLE_ARGS = {'mysql_engine': 'InnoDB', 'mysql_charset': 'utf8', 'mysql_collate': 'utf8_general_ci'}
 
 
-class User(Base):
-    __tablename__ = "users"
+class Subscription(Base):
+    __tablename__ = "subscriptions"
     __table_args__ = DEFAULT_TABLE_ARGS
-    __primary_key__ = 'user_id'
+    __primary_key__ = 'subscription_id'
 
-    user_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-    name = Column(String(128), nullable=False)
-    phone = Column(String(11), nullable=True)
-    address = Column(String(512), nullable=True)
+    subscription_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
