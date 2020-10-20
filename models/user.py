@@ -13,6 +13,8 @@ class User(Base):
     __primary_key__ = 'user_id'
 
     user_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    username = Column(String(32), nullable=False)
+    password = Column(String(32), nullable=False)
     name = Column(String(128), nullable=False)
     phone = Column(String(11), nullable=True)
     address = Column(String(512), nullable=True)
