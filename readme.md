@@ -1,4 +1,11 @@
 # Readme
+- pre-requisite
+  (python, mysql basic understanding)
+
+- git, python, mysql (installed)
+
+- make python virtual environment
+  python3.7 -m venv python37
 
 
 ## Create User Table
@@ -12,3 +19,5 @@ CREATE TABLE `users`(
  `address` varchar(512),
  PRIMARY KEY(`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `users` ADD UNIQUE(`username`);
