@@ -25,13 +25,10 @@ class BaseController:
         return
 
     async def create(self):
-
         rec = self.model()
-
         for k, v in self.context.data.items():
             if isinstance(v, str) and v == '':
                 v = None
-
             attr = getattr(self.model, k, None)
             if attr is not None:
                 setattr(rec, k, v)
@@ -41,6 +38,30 @@ class BaseController:
 
         rec_id = getattr(rec, self.model.__primary_key__)
         return rec_id
+
+    async def update(self):
+        rec_id = self.context.data[self.model.__primary_key__]
+        rec = self.gdb.query(self.model).get(rec_id)
+        for k, v in self.context.data.items():
+            if isinstance(v, str) and v == '':
+                v = None
+            attr = getattr(self.model, k, None)
+            if attr is not None:
+                setattr(rec, k, v)
+
+        await self.gdb.flush()
+        return rec_id
+
+    async def delete(self):
+        rec_id = self.context.data[self.model.__primary_key__]
+        rec = self.gdb.query(self.model).get(rec_id)
+        await self.gdb.delete(rec)
+        await self.gdb.flush()
+
+    async def single(self):
+        rec_id = self.context.data[self.model.__primary_key__]
+        rec = self.gdb.query(self.model).get(rec_id)
+        return rec
 
     async def all(self):
         query = self.gdb.query(self.model)
