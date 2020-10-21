@@ -7,6 +7,12 @@
 - make python virtual environment
   python3.7 -m venv python37
 
+- open project in pycharm and configure python interpreter
+  select virtual environment path
+
+- open terminal in pycharm and install python requirements
+  pip install -r requirements.txt 
+
 
 ## Create User Table
 DROP TABLE `users`;
